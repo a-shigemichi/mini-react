@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Didact Todo App Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        #root {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            margin-top: 0;
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        li:hover {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Babel を使ってJSXをブラウザで直接トランスパイルできるようにする -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- didact.jsを読み込む -->
+    <script src="didact.js" type="text/babel"></script>
+
+    <script type="text/babel">
+        /** @jsx Didact.createElement */
+        // シンプルなTodoアプリのサンプル
+        function TodoApp() {
+            const [todos, setTodos] = Didact.useState([
+                { text: "Didactを学ぶ", completed: true },
+                { text: "Reactを理解する", completed: false },
+                { text: "自分のライブラリを作る", completed: false }
+            ]);
+            
+            const [text, setText] = Didact.useState("");
+            
+            // 新しいTodoを追加
+            const addTodo = () => {
+                if (text.trim() === "") return;
+                
+                setTodos(prevTodos => [
+                    ...prevTodos,
+                    { text, completed: false }
+                ]);
+                setText("");
+            };
+            
+            // Todoの状態を切り替え
+            const toggleTodo = (index) => {
+                setTodos(prevTodos => prevTodos.map((todo, i) => 
+                    i === index 
+                        ? { ...todo, completed: !todo.completed } 
+                        : todo
+                ));
+            };
+            
+            return (
+                <div>
+                    <h1>Didact Todoアプリ</h1>
+                    <div>
+                        <h2>タスク一覧</h2>
+                        <ul>
+                            {todos.map((todo, index) => (
+                                <li 
+                                    onClick={() => toggleTodo(index)}
+                                    style={todo.completed ? { textDecoration: "line-through" } : {}}
+                                >
+                                    {todo.text}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <input 
+                            value={text}
+                            onInput={(e) => setText(e.target.value)} 
+                            placeholder="新しいタスク" 
+                        />
+                        <button onClick={addTodo}>追加</button>
+                    </div>
+                    <p>カウンター: <Counter /></p>
+                </div>
+            );
+        }
+
+        // すでに存在するCounterコンポーネントと一緒に使う
+        const element = <TodoApp />;
+        const container = document.getElementById("root");
+        Didact.render(element, container);
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "mini-react",
+  "version": "1.0.0",
+  "description": "A didactic alternative to React based on Pomber's Didact",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a-shigemichi/mini-react"
+  },
+  "author": "Shigemichi Atsushi",
+  "main": "didact.js",
+  "keywords": [
+    "react",
+    "didact",
+    "tutorial"
+  ],
+  "private": true
+}

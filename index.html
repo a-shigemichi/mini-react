@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Didact Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        #root {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        h1:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Babel を使ってJSXをブラウザで直接トランスパイルできるようにする -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- didact.jsを読み込む -->
+    <script src="didact.js" type="text/babel"></script>
+
+    <script type="text/babel">
+        // 追加のサンプルコードをここに書くこともできます
+        // Counterコンポーネントはすでにdidact.jsに含まれているので、
+        // このファイルは空でも動作します
+    </script>
+</body>
+</html>

@@ -6,18 +6,6 @@ A minimal React implementation built from scratch for educational purposes.
 
 This project is a step-by-step implementation of React's core features, inspired by Rodrigo Pombo's excellent article ["Build your own React"](https://pomb.us/build-your-own-react/). The goal is to understand how React works under the hood by building a simplified version of it.
 
-## Features to Implement
-
-- [x] Project Setup
-- [ ] **Step I**: The createElement Function
-- [ ] **Step II**: The render Function  
-- [ ] **Step III**: Concurrent Mode
-- [ ] **Step IV**: Fibers
-- [ ] **Step V**: Render and Commit Phases
-- [ ] **Step VI**: Reconciliation
-- [ ] **Step VII**: Function Components
-- [ ] **Step VIII**: Hooks
-
 ## Learning Goals
 
 - Understand React's virtual DOM concept
@@ -28,17 +16,22 @@ This project is a step-by-step implementation of React's core features, inspired
 - Gain insights into React's rendering pipeline
 
 ## Getting Started
-
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mini-react.git
+git clone https://github.com/a-shigemichi/mini-react.git
 cd mini-react
 
 # Install dependencies (if any)
 npm install
 
-# Start development
-# (Instructions will be added as we progress)
+# Install serve globally
+npm install -g serve
+
+# Start the development server
+serve
+
+# View the project in your browser
+# Open http://localhost:3000
 ```
 
 ## Implementation Notes
